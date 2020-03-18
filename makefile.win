@@ -1,0 +1,9 @@
+COMPILER=gcc
+DEPENDENCIES=header.h
+FLAGS=-I.
+
+%.o:%.c $(DEPENDENCIES)
+	$(COMPILER) -o -c $@ $< $(DEPENDENCIES)
+
+dependent1: dependent1.c dependent2.c
+	$(COMPILER) -o dependent1 dependent1.c dependent2.c
